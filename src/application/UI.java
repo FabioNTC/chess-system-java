@@ -45,7 +45,7 @@ public class UI {
 			return new ChessPosition(column,row);
 		}
 		catch (RuntimeException e) {
-			throw new InputMismatchException("Erro ao ler PosicaoXadrez. Valores sao de a1 a h8");
+			throw new InputMismatchException("Erro ao ler ChessPosition. Valores sao de a1 a h8");
 		}
 	}
 
