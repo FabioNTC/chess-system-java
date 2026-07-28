@@ -3,9 +3,7 @@ package xadrez;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-import xadrez.pecas.Bispo;
 import xadrez.pecas.Peao;
-import xadrez.pecas.Rainha;
 import xadrez.pecas.Rei;
 
 public class ChessMatch {
@@ -47,6 +45,9 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("Nao existe peca na posicao de origem");
 		}
+		if (!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("Nao existe movimentos possiveis para a peca escolhida.");
+		}
 	}
 
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
@@ -55,16 +56,16 @@ public class ChessMatch {
 
 	private void configInicial() {
 		
-		placeNewPiece('c', 1, new Bispo(board, Color.White));
-		placeNewPiece('d', 1, new Rainha(board, Color.White));
+		placeNewPiece('c', 1, new Rei(board, Color.White));
+		placeNewPiece('d', 1, new Rei(board, Color.White));
 		placeNewPiece('e', 1, new Rei(board, Color.White));
 		placeNewPiece('c', 2, new Peao(board, Color.White));
 		placeNewPiece('d', 2, new Peao(board, Color.White));
 		placeNewPiece('e', 2, new Peao(board, Color.White));
 		
-		placeNewPiece('c', 8, new Bispo(board, Color.Black));
+		placeNewPiece('c', 8, new Rei(board, Color.Black));
 		placeNewPiece('d', 8, new Rei(board, Color.Black));
-		placeNewPiece('e', 8, new Rainha(board, Color.Black));
+		placeNewPiece('e', 8, new Rei(board, Color.Black));
 		placeNewPiece('c', 7, new Peao(board, Color.Black));
 		placeNewPiece('d', 7, new Peao(board, Color.Black));
 		placeNewPiece('e', 7, new Peao(board, Color.Black));
