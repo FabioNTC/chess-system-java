@@ -3,8 +3,8 @@ package xadrez;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
+import xadrez.pecas.Torre;
 
 public class ChessMatch {
 
@@ -66,15 +66,15 @@ public class ChessMatch {
 		placeNewPiece('c', 1, new Rei(board, Color.White));
 		placeNewPiece('d', 1, new Rei(board, Color.White));
 		placeNewPiece('e', 1, new Rei(board, Color.White));
-		placeNewPiece('c', 2, new Peao(board, Color.White));
-		placeNewPiece('d', 2, new Peao(board, Color.White));
-		placeNewPiece('e', 2, new Peao(board, Color.White));
+		placeNewPiece('c', 2, new Torre(board, Color.White));
+		placeNewPiece('d', 2, new Torre(board, Color.White));
+		placeNewPiece('e', 2, new Torre(board, Color.White));
 		
 		placeNewPiece('c', 8, new Rei(board, Color.Black));
 		placeNewPiece('d', 8, new Rei(board, Color.Black));
 		placeNewPiece('e', 8, new Rei(board, Color.Black));
-		placeNewPiece('c', 7, new Peao(board, Color.Black));
-		placeNewPiece('d', 7, new Peao(board, Color.Black));
-		placeNewPiece('e', 7, new Peao(board, Color.Black));
+		placeNewPiece('c', 7, new Torre(board, Color.Black));
+		placeNewPiece('d', 7, new Torre(board, Color.Black));
+		placeNewPiece('e', 7, new Torre(board, Color.Black));
 	}
 }
