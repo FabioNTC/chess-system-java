@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
+import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -191,12 +192,28 @@ public class ChessMatch {
 	}
 
 	private void configInicial() {
-
-		placeNewPiece('d', 1, new Torre(board, Color.White));
+		placeNewPiece('a', 1, new Torre(board, Color.White));
+		placeNewPiece('a', 2, new Peao(board, Color.White));
+		placeNewPiece('b', 2, new Peao(board, Color.White));
+		placeNewPiece('c', 2, new Peao(board, Color.White));
+		placeNewPiece('d', 2, new Peao(board, Color.White));
+		placeNewPiece('e', 2, new Peao(board, Color.White));
+		placeNewPiece('f', 2, new Peao(board, Color.White));
+		placeNewPiece('g', 2, new Peao(board, Color.White));
+		placeNewPiece('h', 2, new Peao(board, Color.White));
 		placeNewPiece('e', 1, new Rei(board, Color.White));
-		placeNewPiece('h', 7, new Torre(board, Color.White));
-
-		placeNewPiece('b', 8, new Torre(board, Color.Black));
-		placeNewPiece('a', 8, new Rei(board, Color.Black));
+		placeNewPiece('h', 1, new Torre(board, Color.White));
+		
+		placeNewPiece('a', 7, new Peao(board, Color.Black));
+		placeNewPiece('b', 7, new Peao(board, Color.Black));
+		placeNewPiece('c', 7, new Peao(board, Color.Black));
+		placeNewPiece('d', 7, new Peao(board, Color.Black));
+		placeNewPiece('e', 7, new Peao(board, Color.Black));
+		placeNewPiece('f', 7, new Peao(board, Color.Black));
+		placeNewPiece('g', 7, new Peao(board, Color.Black));
+		placeNewPiece('h', 7, new Peao(board, Color.Black));
+		placeNewPiece('a', 8, new Torre(board, Color.Black));
+		placeNewPiece('e', 8, new Rei(board, Color.Black));
+		placeNewPiece('h', 8, new Torre(board, Color.Black));
 	}
 }
