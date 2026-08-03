@@ -8,9 +8,7 @@ import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
 import xadrez.pecas.Bispo;
-import xadrez.pecas.Cavalo;
 import xadrez.pecas.Peao;
-import xadrez.pecas.Rainha;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -196,7 +194,6 @@ public class ChessMatch {
 
 	private void configInicial() {
 		placeNewPiece('a', 1, new Torre(board, Color.White));
-		placeNewPiece('b', 1, new Cavalo(board, Color.White));
 		placeNewPiece('c', 1, new Bispo(board, Color.White));
 		placeNewPiece('a', 2, new Peao(board, Color.White));
 		placeNewPiece('b', 2, new Peao(board, Color.White));
@@ -207,13 +204,10 @@ public class ChessMatch {
 		placeNewPiece('g', 2, new Peao(board, Color.White));
 		placeNewPiece('h', 2, new Peao(board, Color.White));
 		placeNewPiece('e', 1, new Rei(board, Color.White));
-		placeNewPiece('d', 1, new Rainha(board, Color.White));
 		placeNewPiece('f', 1, new Bispo(board, Color.White));
-		placeNewPiece('g', 1, new Cavalo(board, Color.White));
 		placeNewPiece('h', 1, new Torre(board, Color.White));
 		
 		placeNewPiece('a', 7, new Peao(board, Color.Black));
-		placeNewPiece('b', 8, new Cavalo(board, Color.Black));
 		placeNewPiece('c', 8, new Bispo(board, Color.Black));
 		placeNewPiece('b', 7, new Peao(board, Color.Black));
 		placeNewPiece('c', 7, new Peao(board, Color.Black));
@@ -224,9 +218,7 @@ public class ChessMatch {
 		placeNewPiece('h', 7, new Peao(board, Color.Black));
 		placeNewPiece('a', 8, new Torre(board, Color.Black));
 		placeNewPiece('e', 8, new Rei(board, Color.Black));
-		placeNewPiece('d', 8, new Rainha(board, Color.Black));
 		placeNewPiece('f', 8, new Bispo(board, Color.Black));
-		placeNewPiece('g', 8, new Cavalo(board, Color.Black));
 		placeNewPiece('h', 8, new Torre(board, Color.Black));
 	}
 }
