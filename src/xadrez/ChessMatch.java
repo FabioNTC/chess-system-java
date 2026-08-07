@@ -22,6 +22,7 @@ public class ChessMatch {
 	private boolean check;
 	private boolean checkMate;
 	private ChessPiece enPassantVulnerable;
+	private ChessPiece promoted;
 
 	private List<Piece> piecesOnTheBoard = new ArrayList<>();
 	private List<Piece> capturedPieces = new ArrayList<>();
@@ -51,6 +52,10 @@ public class ChessMatch {
 
 	public ChessPiece getEnPassantVulnerable() {
 		return enPassantVulnerable;
+	}
+
+	public ChessPiece getPromoted() {
+		return promoted;
 	}
 
 	public ChessPiece[][] getPieces() {
@@ -83,6 +88,15 @@ public class ChessMatch {
 
 		ChessPiece movedPiece = (ChessPiece) board.piece(target);
 
+		// #specialmove promotion
+		promoted = null;
+		if (movedPiece instanceof Peao) {
+			if ((movedPiece.getColor() == Color.White && target.getRow() == 0) || (movedPiece.getColor() == Color.Black && target.getRow() == 7)) {
+			promoted = (ChessPiece) board.piece(target);
+			promoted = replacePromotedPiece("Q");
+			}
+		}
+
 		check = (testCheck(opponent(currentPlayer))) ? true : false;
 
 		if (testCheckMate(opponent(currentPlayer))) {
@@ -100,6 +114,36 @@ public class ChessMatch {
 		}
 
 		return (ChessPiece) capturedPiece;
+	}
+
+	public ChessPiece replacePromotedPiece(String type) {
+		if (promoted == null) {
+			throw new IllegalStateException("Nao ha peca a ser promovida");
+		}
+		if (!type.equals("B") && !type.equals("H") && !type.equals("R") & !type.equals("Q")) {
+			return promoted;
+		}
+		Position pos = promoted.getChessPosition().toPosition();
+		Piece p = board.removePiece(pos);
+		piecesOnTheBoard.remove(p);
+
+		ChessPiece newPiece = newPiece(type, promoted.getColor());
+		board.placePiece(newPiece, pos);
+		piecesOnTheBoard.add(newPiece);
+
+		return newPiece;
+
+	}
+
+	private ChessPiece newPiece(String type, Color color) {
+		if (type.equals("B"))
+			return new Bispo(board, color);
+		if (type.equals("H"))
+			return new Cavalo(board, color);
+		if (type.equals("Q"))
+			return new Rainha(board, color);
+		return new Torre(board, color);
+
 	}
 
 	private Piece makeMove(Position source, Position target) {
